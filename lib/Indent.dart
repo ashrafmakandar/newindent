@@ -63,12 +63,19 @@ class _State extends State<Indent> {
             "INDENT",
             style: TextStyle(fontFamily: 'Montserrat', fontSize: 20),
           ),
-
+          actions: [
+            IconButton(
+                icon: Icon(Icons.refresh),
+                onPressed: () => {
+                      setState(() {
+                        getvalues();
+                      })
+                    })
+          ],
         ),
         body: Center(
           child: Container(
             child: RefreshIndicator(
-
               onRefresh: getvalues,
               child: FutureBuilder(
                 future: getvalues(),
@@ -185,7 +192,7 @@ class _State extends State<Indent> {
                                                       Documentviews(
                                                           user: widget.user,
                                                           password:
-                                                          widget.password,
+                                                              widget.password,
                                                           id: posts['id'])));
                                           Fluttertoast.showToast(
                                               msg: posts['id']);
@@ -200,9 +207,9 @@ class _State extends State<Indent> {
                                           child: new Dialog(
                                             child: Column(
                                               mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
+                                                  MainAxisAlignment.spaceAround,
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                                  CrossAxisAlignment.center,
                                               children: <Widget>[
                                                 Text(" CEO Approval",
                                                     style: TextStyle(
@@ -210,7 +217,7 @@ class _State extends State<Indent> {
                                                         fontSize: 15.0,
                                                         fontFamily: 'OpenSans',
                                                         fontWeight:
-                                                        FontWeight.bold)),
+                                                            FontWeight.bold)),
                                                 Text(
                                                   '${posts['cEOApproval']}',
                                                   style: TextStyle(
@@ -223,7 +230,7 @@ class _State extends State<Indent> {
                                                         color: Colors.blue,
                                                         fontSize: 15.0,
                                                         fontWeight:
-                                                        FontWeight.bold)),
+                                                            FontWeight.bold)),
                                                 Text(
                                                   '${posts['cEORemarks']}',
                                                   style: TextStyle(
@@ -236,7 +243,7 @@ class _State extends State<Indent> {
                                                         fontSize: 15.0,
                                                         fontFamily: 'OpenSans',
                                                         fontWeight:
-                                                        FontWeight.bold)),
+                                                            FontWeight.bold)),
                                                 Text(
                                                   '${posts['vPApproval']}',
                                                   style: TextStyle(
@@ -249,7 +256,7 @@ class _State extends State<Indent> {
                                                         fontSize: 15.0,
                                                         fontFamily: 'OpenSans',
                                                         fontWeight:
-                                                        FontWeight.bold)),
+                                                            FontWeight.bold)),
                                                 Text(
                                                   '${posts['vPRemarks']}',
                                                   style: TextStyle(
@@ -262,7 +269,7 @@ class _State extends State<Indent> {
                                                         fontSize: 15.0,
                                                         fontFamily: 'OpenSans',
                                                         fontWeight:
-                                                        FontWeight.bold)),
+                                                            FontWeight.bold)),
                                                 Text(
                                                   '${posts['outletHeadSrGM']}',
                                                   style: TextStyle(
@@ -275,7 +282,7 @@ class _State extends State<Indent> {
                                                         fontSize: 15.0,
                                                         fontFamily: 'OpenSans',
                                                         fontWeight:
-                                                        FontWeight.bold)),
+                                                            FontWeight.bold)),
                                                 Text(
                                                   '${posts['outletHeadGMRemarks']}',
                                                   style: TextStyle(
@@ -288,14 +295,14 @@ class _State extends State<Indent> {
                                                         fontSize: 15.0,
                                                         fontFamily: 'OpenSans',
                                                         fontWeight:
-                                                        FontWeight.bold)),
+                                                            FontWeight.bold)),
                                                 Text("Spares Approval Here"),
                                                 Text(" Spares Remarks",
                                                     style: TextStyle(
                                                         color: Colors.blue,
                                                         fontSize: 15.0,
                                                         fontWeight:
-                                                        FontWeight.bold)),
+                                                            FontWeight.bold)),
                                                 Text(" Spares Remarks Here"),
                                                 FlatButton(
                                                   onPressed: () {
@@ -414,9 +421,10 @@ class _State extends State<Indent> {
                                             child: new Dialog(
                                               child: Column(
                                                 crossAxisAlignment:
-                                                CrossAxisAlignment.center,
+                                                    CrossAxisAlignment.center,
                                                 mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
                                                 children: <Widget>[
                                                   Text(
                                                     "Details of Requirement",
@@ -427,51 +435,57 @@ class _State extends State<Indent> {
                                                   Text(
                                                       '${posts['detailsOfRequirment']}',
                                                       style: TextStyle(
-                                                        fontFamily: 'Montserrat',
+                                                        fontFamily:
+                                                            'Montserrat',
                                                       )),
                                                   Text("Amount",
                                                       style: TextStyle(
-                                                          fontFamily: 'OpenSans',
+                                                          fontFamily:
+                                                              'OpenSans',
                                                           color: Colors.blue)),
                                                   Text(
                                                     '${posts['amount']}',
                                                     style: TextStyle(
-                                                        fontFamily: 'Montserrat'),
+                                                        fontFamily:
+                                                            'Montserrat'),
                                                   ),
                                                   Text("Remarks",
                                                       style: TextStyle(
-                                                          fontFamily: 'OpenSans',
+                                                          fontFamily:
+                                                              'OpenSans',
                                                           color: Colors.blue)),
                                                   TextFormField(
                                                     controller: textcontrol,
                                                     decoration: InputDecoration(
                                                         labelText:
-                                                        "Enter Remarks ",
+                                                            "Enter Remarks ",
                                                         border:
-                                                        OutlineInputBorder(),
+                                                            OutlineInputBorder(),
                                                         contentPadding:
-                                                        EdgeInsets.all(10.0)),
+                                                            EdgeInsets.all(
+                                                                10.0)),
                                                   ),
                                                   Row(
                                                     mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
                                                     crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: <Widget>[
                                                       FlatButton(
                                                           onPressed: () async {
-                                                            Fluttertoast
-                                                                .showToast(
+                                                            Fluttertoast.showToast(
                                                                 msg: widget
                                                                     .user.id,
                                                                 gravity:
-                                                                ToastGravity
-                                                                    .BOTTOM);
+                                                                    ToastGravity
+                                                                        .BOTTOM);
                                                             setState(() {
                                                               getvalues();
                                                               Navigator.pop(
-                                                                  context, true);
+                                                                  context,
+                                                                  true);
                                                             });
 
                                                             String usergroup =
@@ -481,18 +495,18 @@ class _State extends State<Indent> {
                                                                 "CEO") {
                                                               var jsonMap = {
                                                                 'cEOApproval':
-                                                                'Approved',
+                                                                    'Approved',
                                                                 'cEORemarks':
-                                                                textcontrol
-                                                                    .text,
+                                                                    textcontrol
+                                                                        .text,
                                                               };
                                                               Fluttertoast
                                                                   .showToast(
-                                                                  msg: posts[
-                                                                  'id']);
+                                                                      msg: posts[
+                                                                          'id']);
                                                               String jsonStr =
-                                                              jsonEncode(
-                                                                  jsonMap);
+                                                                  jsonEncode(
+                                                                      jsonMap);
                                                               var password =
                                                                   widget
                                                                       .password;
@@ -501,38 +515,37 @@ class _State extends State<Indent> {
                                                                   .userName;
                                                               String basicAuth = 'Basic ' +
                                                                   base64Encode(
-                                                                      utf8
-                                                                          .encode(
+                                                                      utf8.encode(
                                                                           '$email:$password'));
 
-                                                              final res = await http
-                                                                  .put(
+                                                              final res = await http.put(
                                                                   "http://indent.kalyanicrm.com/api/v1/Opportunity/" +
-                                                                      posts['id'],
+                                                                      posts[
+                                                                          'id'],
                                                                   headers: {
                                                                     HttpHeaders
-                                                                        .authorizationHeader:
-                                                                    basicAuth,
+                                                                            .authorizationHeader:
+                                                                        basicAuth,
                                                                     HttpHeaders
-                                                                        .contentTypeHeader:
-                                                                    "application/json"
+                                                                            .contentTypeHeader:
+                                                                        "application/json"
                                                                   },
-                                                                  body: jsonStr);
+                                                                  body:
+                                                                      jsonStr);
                                                               print("res" +
                                                                   res.body);
-                                                            } else
-                                                            if (usergroup ==
+                                                            } else if (usergroup ==
                                                                 "VP") {
                                                               var jsonMap = {
                                                                 'vPApproval':
-                                                                'Approved',
+                                                                    'Approved',
                                                                 'vPRemarks':
-                                                                textcontrol
-                                                                    .text,
+                                                                    textcontrol
+                                                                        .text,
                                                               };
                                                               String jsonStr =
-                                                              jsonEncode(
-                                                                  jsonMap);
+                                                                  jsonEncode(
+                                                                      jsonMap);
                                                               var password =
                                                                   widget
                                                                       .password;
@@ -541,36 +554,36 @@ class _State extends State<Indent> {
                                                                   .userName;
                                                               String basicAuth = 'Basic ' +
                                                                   base64Encode(
-                                                                      utf8
-                                                                          .encode(
+                                                                      utf8.encode(
                                                                           '$email:$password'));
 
-                                                              final res = await http
-                                                                  .put(
+                                                              final res = await http.put(
                                                                   "http://indent.kalyanicrm.com/api/v1/Opportunity/" +
-                                                                      posts['id'],
+                                                                      posts[
+                                                                          'id'],
                                                                   headers: {
                                                                     HttpHeaders
-                                                                        .authorizationHeader:
-                                                                    basicAuth,
+                                                                            .authorizationHeader:
+                                                                        basicAuth,
                                                                     HttpHeaders
-                                                                        .contentTypeHeader:
-                                                                    "application/json"
+                                                                            .contentTypeHeader:
+                                                                        "application/json"
                                                                   },
-                                                                  body: jsonStr);
+                                                                  body:
+                                                                      jsonStr);
 
                                                               print(res.body);
                                                             } else {
                                                               var jsonMap = {
                                                                 'outletHeadSrGM':
-                                                                'Approved',
+                                                                    'Approved',
                                                                 'outletHeadGMRemarks':
-                                                                textcontrol
-                                                                    .text,
+                                                                    textcontrol
+                                                                        .text,
                                                               };
                                                               String jsonStr =
-                                                              jsonEncode(
-                                                                  jsonMap);
+                                                                  jsonEncode(
+                                                                      jsonMap);
                                                               var password =
                                                                   widget
                                                                       .password;
@@ -579,50 +592,50 @@ class _State extends State<Indent> {
                                                                   .userName;
                                                               String basicAuth = 'Basic ' +
                                                                   base64Encode(
-                                                                      utf8
-                                                                          .encode(
+                                                                      utf8.encode(
                                                                           '$email:$password'));
 
-                                                              final res = await http
-                                                                  .put(
+                                                              final res = await http.put(
                                                                   "http://indent.kalyanicrm.com/api/v1/Opportunity/" +
-                                                                      posts['id'],
+                                                                      posts[
+                                                                          'id'],
                                                                   headers: {
                                                                     HttpHeaders
-                                                                        .authorizationHeader:
-                                                                    basicAuth,
+                                                                            .authorizationHeader:
+                                                                        basicAuth,
                                                                     HttpHeaders
-                                                                        .contentTypeHeader:
-                                                                    "application/json"
+                                                                            .contentTypeHeader:
+                                                                        "application/json"
                                                                   },
-                                                                  body: jsonStr);
+                                                                  body:
+                                                                      jsonStr);
 
                                                               print(res.body);
                                                             }
                                                           },
                                                           color: Colors.green,
-                                                          textColor: Colors
-                                                              .white,
+                                                          textColor:
+                                                              Colors.white,
                                                           child: Text("APPROVE",
                                                               style: TextStyle(
                                                                 fontFamily:
-                                                                'Montserrat',
+                                                                    'Montserrat',
                                                               ))),
                                                       FlatButton(
                                                           onPressed: () async {
                                                             setState(() {
                                                               getvalues();
                                                               Navigator.pop(
-                                                                  context, true);
+                                                                  context,
+                                                                  true);
                                                             });
 
-                                                            Fluttertoast
-                                                                .showToast(
+                                                            Fluttertoast.showToast(
                                                                 msg: widget
                                                                     .user.id,
                                                                 gravity:
-                                                                ToastGravity
-                                                                    .BOTTOM);
+                                                                    ToastGravity
+                                                                        .BOTTOM);
                                                             String usergroup =
                                                                 widget.user
                                                                     .userGroup;
@@ -630,14 +643,14 @@ class _State extends State<Indent> {
                                                                 "CEO") {
                                                               var jsonMap = {
                                                                 'cEOApproval':
-                                                                'Rejected',
+                                                                    'Rejected',
                                                                 'cEORemarks':
-                                                                textcontrol
-                                                                    .text,
+                                                                    textcontrol
+                                                                        .text,
                                                               };
                                                               String jsonStr =
-                                                              jsonEncode(
-                                                                  jsonMap);
+                                                                  jsonEncode(
+                                                                      jsonMap);
                                                               var password =
                                                                   widget
                                                                       .password;
@@ -646,38 +659,37 @@ class _State extends State<Indent> {
                                                                   .userName;
                                                               String basicAuth = 'Basic ' +
                                                                   base64Encode(
-                                                                      utf8
-                                                                          .encode(
+                                                                      utf8.encode(
                                                                           '$email:$password'));
 
-                                                              final res = await http
-                                                                  .put(
+                                                              final res = await http.put(
                                                                   "http://indent.kalyanicrm.com/api/v1/Opportunity/" +
-                                                                      posts['id'],
+                                                                      posts[
+                                                                          'id'],
                                                                   headers: {
                                                                     HttpHeaders
-                                                                        .authorizationHeader:
-                                                                    basicAuth,
+                                                                            .authorizationHeader:
+                                                                        basicAuth,
                                                                     HttpHeaders
-                                                                        .contentTypeHeader:
-                                                                    "application/json"
+                                                                            .contentTypeHeader:
+                                                                        "application/json"
                                                                   },
-                                                                  body: jsonStr);
+                                                                  body:
+                                                                      jsonStr);
                                                               print("res" +
                                                                   res.body);
-                                                            } else
-                                                            if (usergroup ==
+                                                            } else if (usergroup ==
                                                                 "VP") {
                                                               var jsonMap = {
                                                                 'vPApproval':
-                                                                'Rejected',
+                                                                    'Rejected',
                                                                 'vPRemarks':
-                                                                textcontrol
-                                                                    .text,
+                                                                    textcontrol
+                                                                        .text,
                                                               };
                                                               String jsonStr =
-                                                              jsonEncode(
-                                                                  jsonMap);
+                                                                  jsonEncode(
+                                                                      jsonMap);
                                                               var password =
                                                                   widget
                                                                       .password;
@@ -686,23 +698,23 @@ class _State extends State<Indent> {
                                                                   .userName;
                                                               String basicAuth = 'Basic ' +
                                                                   base64Encode(
-                                                                      utf8
-                                                                          .encode(
+                                                                      utf8.encode(
                                                                           '$email:$password'));
 
-                                                              final res = await http
-                                                                  .put(
+                                                              final res = await http.put(
                                                                   "http://indent.kalyanicrm.com/api/v1/Opportunity/" +
-                                                                      posts['id'],
+                                                                      posts[
+                                                                          'id'],
                                                                   headers: {
                                                                     HttpHeaders
-                                                                        .authorizationHeader:
-                                                                    basicAuth,
+                                                                            .authorizationHeader:
+                                                                        basicAuth,
                                                                     HttpHeaders
-                                                                        .contentTypeHeader:
-                                                                    "application/json"
+                                                                            .contentTypeHeader:
+                                                                        "application/json"
                                                                   },
-                                                                  body: jsonStr);
+                                                                  body:
+                                                                      jsonStr);
                                                               /*   Navigator.push(
                                                                   context,
                                                                   MaterialPageRoute(
@@ -713,14 +725,14 @@ class _State extends State<Indent> {
                                                             } else {
                                                               var jsonMap = {
                                                                 'outletHeadSrGM':
-                                                                'Rejected',
+                                                                    'Rejected',
                                                                 'outletHeadGMRemarks':
-                                                                textcontrol
-                                                                    .text,
+                                                                    textcontrol
+                                                                        .text,
                                                               };
                                                               String jsonStr =
-                                                              jsonEncode(
-                                                                  jsonMap);
+                                                                  jsonEncode(
+                                                                      jsonMap);
                                                               var password =
                                                                   widget
                                                                       .password;
@@ -729,34 +741,34 @@ class _State extends State<Indent> {
                                                                   .userName;
                                                               String basicAuth = 'Basic ' +
                                                                   base64Encode(
-                                                                      utf8
-                                                                          .encode(
+                                                                      utf8.encode(
                                                                           '$email:$password'));
 
-                                                              final res = await http
-                                                                  .put(
+                                                              final res = await http.put(
                                                                   "http://indent.kalyanicrm.com/api/v1/Opportunity/" +
-                                                                      posts['id'],
+                                                                      posts[
+                                                                          'id'],
                                                                   headers: {
                                                                     HttpHeaders
-                                                                        .authorizationHeader:
-                                                                    basicAuth,
+                                                                            .authorizationHeader:
+                                                                        basicAuth,
                                                                     HttpHeaders
-                                                                        .contentTypeHeader:
-                                                                    "application/json"
+                                                                            .contentTypeHeader:
+                                                                        "application/json"
                                                                   },
-                                                                  body: jsonStr);
+                                                                  body:
+                                                                      jsonStr);
                                                               print(res.body);
                                                             }
                                                           },
                                                           color:
-                                                          Colors.deepOrange,
-                                                          textColor: Colors
-                                                              .white,
+                                                              Colors.deepOrange,
+                                                          textColor:
+                                                              Colors.white,
                                                           child: Text("REJECT",
                                                               style: TextStyle(
                                                                 fontFamily:
-                                                                'Montserrat',
+                                                                    'Montserrat',
                                                               ))),
                                                     ],
                                                   ),
@@ -770,7 +782,7 @@ class _State extends State<Indent> {
                                                       child: Text("CANCEL",
                                                           style: TextStyle(
                                                             fontFamily:
-                                                            'Montserrat',
+                                                                'Montserrat',
                                                           ))),
                                                 ],
                                               ),
@@ -830,8 +842,7 @@ class _State extends State<Indent> {
     };
     if (widget.user.userGroup == "GM") {
       final response = await http.get(
-          'http://indent.kalyanicrm.com/api/v1/Opportunity?type="in"&attribute="indentStatus"&value="Pending from Outlet Head&Username=${widget
-              .user.userName}&password=${widget.password}', //pass in url
+          'http://indent.kalyanicrm.com/api/v1/Opportunity?type="in"&attribute="indentStatus"&value="Pending from Outlet Head&Username=${widget.user.userName}&password=${widget.password}', //pass in url
 
           headers: headers); //sorry the url was here not in before screen
       print("values" + response.body);
@@ -847,8 +858,7 @@ class _State extends State<Indent> {
       });*/
     } else if (widget.user.userGroup == "CEO") {
       final response = await http.get(
-          'http://indent.kalyanicrm.com/api/v1/Opportunity?type="in"&attribute="indentStatus"&value="Pending from CEO&Username=${widget
-              .user.userName}&password=${widget.password}', //pass in url
+          'http://indent.kalyanicrm.com/api/v1/Opportunity?type="in"&attribute="indentStatus"&value="Pending from CEO&Username=${widget.user.userName}&password=${widget.password}', //pass in url
 
           headers: headers); //sorry the url was here not in before screen
       //  print("values" + response.body);
@@ -865,8 +875,7 @@ class _State extends State<Indent> {
       });*/
     } else if (widget.user.userGroup == "VP") {
       final response = await http.get(
-          'http://indent.kalyanicrm.com/api/v1/Opportunity?type="in"&attribute="indentStatus"&value="Pending from VP&Username=${widget
-              .user.userName}&password=${widget.password}', //pass in url
+          'http://indent.kalyanicrm.com/api/v1/Opportunity?type="in"&attribute="indentStatus"&value="Pending from VP&Username=${widget.user.userName}&password=${widget.password}', //pass in url
 
           headers: headers); //sorry the url was here not in before screen
       print("values" + response.body);
@@ -906,7 +915,7 @@ class _State extends State<Indent> {
 
     final docresponse = Document.fromJson(json.decode(res.body));
     var s =
-    RequiredDocuments.fromJson(docresponse.requiredDocumentsNames.toJson());
+        RequiredDocuments.fromJson(docresponse.requiredDocumentsNames.toJson());
     print("doctypes" + s.toString());
 
     print("iss" + ids.toString());

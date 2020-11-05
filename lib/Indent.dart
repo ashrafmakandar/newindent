@@ -50,8 +50,9 @@ class _State extends State<Indent> {
   @override
   void setState(fn) {
     // TODO: implement setState
-    getvalues();
+
     super.setState(fn);
+    getvalues();
   }
 
   @override
@@ -500,6 +501,9 @@ class _State extends State<Indent> {
                                                                     textcontrol
                                                                         .text,
                                                               };
+                                                              setState(() {
+                                                                getvalues();
+                                                              });
                                                               Fluttertoast
                                                                   .showToast(
                                                                       msg: posts[
@@ -629,7 +633,9 @@ class _State extends State<Indent> {
                                                                   context,
                                                                   true);
                                                             });
-
+                                                            setState(() {
+                                                              getvalues();
+                                                            });
                                                             Fluttertoast.showToast(
                                                                 msg: widget
                                                                     .user.id,
@@ -858,7 +864,7 @@ class _State extends State<Indent> {
       });*/
     } else if (widget.user.userGroup == "CEO") {
       final response = await http.get(
-          'http://indent.kalyanicrm.com/api/v1/Opportunity?type="in"&attribute="indentStatus"&value="Pending from CEO&Username=${widget.user.userName}&password=${widget.password}', //pass in url
+          'http://indent.kalyanicrm.com/api/v1/Opportunity?where[0][type]=in&where[0][attribute]=indentStatus&where[0][value][]=Pending+from+CEO', //pass in url
 
           headers: headers); //sorry the url was here not in before screen
       //  print("values" + response.body);
@@ -875,7 +881,7 @@ class _State extends State<Indent> {
       });*/
     } else if (widget.user.userGroup == "VP") {
       final response = await http.get(
-          'http://indent.kalyanicrm.com/api/v1/Opportunity?type="in"&attribute="indentStatus"&value="Pending from VP&Username=${widget.user.userName}&password=${widget.password}', //pass in url
+          'http://indent.kalyanicrm.com/api/v1/Opportunity?where[0][type]=in&where[0][attribute]=indentStatus&where[0][value][]=Pending+from+Vertical+Head', //pass in url
 
           headers: headers); //sorry the url was here not in before screen
       print("values" + response.body);
